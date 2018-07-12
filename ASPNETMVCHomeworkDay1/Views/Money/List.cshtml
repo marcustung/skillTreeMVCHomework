@@ -1,0 +1,26 @@
+﻿
+@model IEnumerable<ASPNETMVCHomeworkDay1.ViewModels.MoneyViewModel>
+@{
+	Layout = null;
+}
+<div class="row">
+	<div class="col-md-12">
+		<table class="table table-bordered table-hover">
+			<tr>
+				<th>#</th>
+				<th>@Html.DisplayNameFor(model => model.Category)</th>
+				<th>@Html.DisplayNameFor(model => model.Date)</th>
+				<th>@Html.DisplayNameFor(model => model.Money)</th>
+			</tr>
+			@foreach (var item in @Model.Select((item, Index)=> new {Data = item, Id = Index+1}))
+			{
+				<tr>
+					<td>@item.Id</td>
+					<td>@item.Data.Category</td>
+					<td>@item.Data.Date.ToString("yyyy-MM-dd")</td>
+					<td>@item.Data.Money.ToString("N0")</td>	
+				</tr>
+			}
+		</table>
+	</div>
+</div>
